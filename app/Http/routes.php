@@ -15,3 +15,7 @@ $app->get('/', function () use ($app) {
 	return 123;
     return $app->version();
 });
+
+$app->get('/JWS', function () use ($app) {	 
+	return response()->json(['info' => 'Jackson Web Services Main API']);
+});
