@@ -16,6 +16,17 @@ $app->get('/', function () use ($app) {
     return $app->version();
 });
 
-$app->get('/JWS', function () use ($app) {	 
-	return response()->json(['info' => 'Jackson Web Services Main API']);
+
+$app->group(['prefix' => 'v1','namespace' => 'App\Http\Controllers\v1'], function () use ($app) {  
+	
+    $app->get('info', 'InfoController@index');
+   
 });
+
+// routing examples
+// $app->get($uri, $callback);
+// $app->post($uri, $callback);
+// $app->put($uri, $callback);
+// $app->patch($uri, $callback);
+// $app->delete($uri, $callback);
+// $app->options($uri, $callback);
